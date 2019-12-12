@@ -109,6 +109,10 @@ func TestGreatestCommonDivisor(t *testing.T) {
 			inputs:   []int{115, 65},
 			expected: 5,
 		},
+		testData{
+			inputs:   []int{3, 3},
+			expected: 3,
+		},
 	}
 
 	for _, td := range testCases {

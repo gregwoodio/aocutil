@@ -68,7 +68,7 @@ func GreatestCommonDivisor(x, y int) int {
 		absY *= -1
 	}
 
-	for i := 1; i < absX || i < absY; i++ {
+	for i := 1; i <= absX || i <= absY; i++ {
 		if x%i == 0 && y%i == 0 {
 			gcd = i
 		}
