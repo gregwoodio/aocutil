@@ -10,16 +10,8 @@ type Coord struct {
 func (source *Coord) GetSlope(c *Coord) (int, int) {
 	var dx, dy int
 
-	dx = c.X - source.X
-	dy = c.Y - source.Y
-
-	if dx == 0 && dy == 0 {
-		return 0, 0
-	} else if dx == 0 {
-		return 0, 1
-	} else if dy == 0 {
-		return 1, 0
-	}
+	dx = source.X - c.X
+	dy = source.Y - c.Y
 
 	gcd := GreatestCommonDivisor(dx, dy)
 	dx /= gcd
