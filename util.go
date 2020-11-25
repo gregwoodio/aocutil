@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // ReadStringsFromFile reads the file and returns a []string
@@ -53,4 +54,27 @@ func ReadIntsFromFile(filepath string) []int {
 	}
 
 	return input
+}
+
+// ReadAndSplitInts reads a file line by line, and splits the line on the delimiter into ints.
+func ReadAndSplitInts(filepath string, delimiter string) [][]int {
+	file, _ := os.Open(filepath)
+	reader := bufio.NewReader(file)
+
+	var inputNumbers [][]int
+
+	for line, _, _ := reader.ReadLine(); line != nil; {
+		var numbers []int
+
+		split := strings.Split(string(line), delimiter)
+
+		for _, num := range split {
+			float, _ := strconv.Atoi(num)
+			numbers = append(numbers, float)
+		}
+		inputNumbers = append(inputNumbers, numbers)
+		line, _, _ = reader.ReadLine()
+	}
+
+	return inputNumbers
 }
