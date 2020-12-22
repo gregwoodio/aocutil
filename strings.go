@@ -1,6 +1,7 @@
 package aocutil
 
-func reverse(str string) string {
+// Reverse the provided string
+func Reverse(str string) string {
 	reversed := []byte{}
 
 	for i := len(str) - 1; i >= 0; i-- {

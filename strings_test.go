@@ -22,7 +22,7 @@ func TestReverse(t *testing.T) {
 	}
 
 	for _, td := range testData {
-		actual := reverse(td.input)
+		actual := Reverse(td.input)
 		if actual != td.expected {
 			t.Errorf("expected '%s' but was '%s'", td.expected, actual)
 		}
